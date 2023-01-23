@@ -41,5 +41,9 @@ Get-AppLockerPolicy -Effective | Set-AppLockerPolicy
 # Enable Secure Boot
 Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\SecureBoot\State" -Name "UEFISecureBootEnabled" -Value 1
 
+# Disable Powershell Remoting 
+# Does not affect configurations
+Disable-PSRemoting -Force
+
 # Disable Remote Desktop Protocol (RDP)
 Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 1
